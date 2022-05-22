@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>programmerAPI</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <!-- CSS only -->
+    <link rel="stylesheet" type="text/css"  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+
+ </head>
+ <body>
+  <div class="header">
+    <a class="active" href="./api.html">API</a>
+    <a href="./download.html">Download</a>
+    <a href="./example.html">Example</a>
+    <a href="./index.html"><i class="fa-solid fa-cubes-stacked" id="icon"></i>programmer.js</a>
+  </div>
+
+    <h1 style="font-size: 50px;margin-top: 2%;margin-left: 5%;font-family: 'Josefin Sans', sans-serif;">API</h1>
+    <h2 style="margin-left: 5%;">Programmer Object (infobox & codebox)</h2>
+    <div class="row mb-3">
+        <div class="col-md-11 themed-grid-col" style="margin-left:5%;background-color: #2b2d42;">
+          <div class="row">
+            <div class="col-6 col-md-4 themed-grid-col" style="background-color: #8d99ae; color:white;text-align: center;font-weight: bold;font-size: large;">Attribute</div>
+            <div class="col-6 col-md-2 themed-grid-col" style="background-color: #8d99ae; color:white;text-align: center;font-weight: bold;font-size: large;">Type</div>
+            <div class="col-6 col-md-6 themed-grid-col" style="background-color: #8d99ae; color:white;text-align: center;font-weight: bold;font-size: large;">Description</div>
+            <!--start-->
+            <div class="col-6 col-md-4 themed-grid-col">infobox.def <b>(required)</b></div>
+            <div class="col-6 col-md-2 themed-grid-col">String</div>
+            <div class="col-6 col-md-6 themed-grid-col">the programming definition associated with the target keyword. e.g. "if"</div>
+
+            <div class="col-6 col-md-4 themed-grid-col">infobox.explanation</div>
+            <div class="col-6 col-md-2 themed-grid-col">String</div>
+            <div class="col-6 col-md-6 themed-grid-col">the explanation of the programming definition.<br> e.g. "Tests a given condition and returns one value for a TRUE result and another value for a FALSE result"</div>
+
+            <div class="col-6 col-md-4 themed-grid-col">infobox.example</div>
+            <div class="col-6 col-md-2 themed-grid-col">Array of strings and subarrays</div>
+            <div class="col-6 col-md-6 themed-grid-col">an example code block. The first element should be a string that explains what does the following code do.<br> e.g.
+<code>["For example, the following will print each element in students 
+('paul', 'lily', and 'jim') ", 
+"students = ['paul', 'lily', 'jim']\n", 
+"for student in students:\n"
+,"  print(student)"]</code></div>
+
+            <div class="col-6 col-md-4 themed-grid-col">infobox.syntax</div>
+            <div class="col-6 col-md-2 themed-grid-col">Array of strings and subarrays</div>
+            <div class="col-6 col-md-6 themed-grid-col">the syntax of the related programming definition. Keywords should be contained in a nested array seperately.<br> e.g.
+<code>[["if"], " condition expression:\n",
+"  result when condition is satisfied\n",
+["else"], "\nresult when condition is NOT satisfied\n"]</code></div>
+
+            <div class="col-6 col-md-4 themed-grid-col">codebox.question</div>
+            <div class="col-6 col-md-2 themed-grid-col">Array of strings and subarrays</div>
+            <div class="col-6 col-md-6 themed-grid-col">a question. Keywords should be contained in a nested array seperately.<br> e.g.
+<code>["Print ", ["Hello"], " if word ", ["apple"],
+" contains character 'a', else print ", ["Bye"]]</code></div>
+
+            <div class="col-6 col-md-4 themed-grid-col">codebox.code_templet</div>
+            <div class="col-6 col-md-2 themed-grid-col">Array of strings and subarrays containing a string represents the length of required user input</div>
+            <div class="col-6 col-md-6 themed-grid-col">the code template for question. Fields required to be filled by users should be presented by an array, filled with the required length of user input.<br> e.g.
+<code>[[2], "'a' in 'apple':\n", "  print('Hello')\n", [4],":\n",
+"  print('Bye')"]</code></div>
+
+            <div class="col-6 col-md-4 themed-grid-col">codebox.answer <br>(need to provide codebox.code_templet as well)</div>
+            <div class="col-6 col-md-2 themed-grid-col">Array of strings </div>
+            <div class="col-6 col-md-6 themed-grid-col">answers for the question. Should match the required input fileds in code_templet<br> e.g.<code>["if", "else"]</code></div>
+          
+            <div class="col-6 col-md-4 themed-grid-col">type</div>
+            <div class="col-6 col-md-2 themed-grid-col">the type of this Programmer object</div>
+            <div class="col-6 col-md-6 themed-grid-col">will automatically analyze infobox.def and assign a type to this Programmer object</div>
+        </div>
+        </div>
+      </div>
+      
+      <h2 style="margin-left: 5%;">Example</h2>
+      <h5 style="margin-left: 5%;">order: def, explanation, example, syntax, question, code_templet, answer</h5>
+      <pre style="margin-left: 5%;"><code>
+    const userprogrammer = new Programmer('user', 'explanation',
+    ['example header', 'example line1\n', 'example line2\n', 'example line3\n'],
+    [['keyword1'], ' syntax line1\n',['keyword2'], '     syntax line2\n'],
+    [['keyword1'], ' question1'],
+    [['4'], ' templet line1\n', '    templet line2\n', ['4'],'   templet line3\n'],
+    ['ans1', 'ans2'])</code>
+      </pre>
+    
+    <hr class="my-4" style="margin: 5%;">
+
+    <h2 style="margin-left: 5%;">Functions</h2>
+    <div class="row mb-3">
+        <div class="col-md-11 themed-grid-col" style="margin-left:5%;background-color: #2b2d42;">
+          <div class="row">
+            <div class="col-6 col-md-4 themed-grid-col" style="background-color: #8d99ae; color:white;text-align: center;font-weight: bold;font-size: large;">Function name</div>
+            <div class="col-6 col-md-2 themed-grid-col" style="background-color: #8d99ae; color:white;text-align: center;font-weight: bold;font-size: large;">Required Input</div>
+            <div class="col-6 col-md-6 themed-grid-col" style="background-color: #8d99ae; color:white;text-align: center;font-weight: bold;font-size: large;">Description</div>
+            <!--start-->
+            <div class="col-6 col-md-4 themed-grid-col">makeInfoBox</div>
+            <div class="col-6 col-md-2 themed-grid-col">target position, type</div>
+            <div class="col-6 col-md-6 themed-grid-col">make an infobox, containing defintion, explanation, example and syntax. e.g.<br>
+<code>const target = document.querySelector('.if-block')<br>
+const ifprogrammer = new Programmer('if')<br>
+ifprogrammer.makeInfoBox(target, ifprogrammer.type)    
+</code>
+<br>
+<b>Important: </b>please make the keyword be a innertext of hyperlink with classname "target", with empty string link.e.g.<br>
+<code>&lt;div class ='if-block'&gt;&lt;a class='target' href=""&gt;If&lt;/a&gt;&lt;/div&gt;</code>
+</div>
+
+            <div class="col-6 col-md-4 themed-grid-col">changeExplanation</div>
+            <div class="col-6 col-md-2 themed-grid-col">newContent (String)</div>
+            <div class="col-6 col-md-6 themed-grid-col">change the explanation of infobox.<br> e.g.
+<code>ifprogrammer.changeExplanation("new explanation for if")</code></div>
+
+            <div class="col-6 col-md-4 themed-grid-col">changeExample</div>
+            <div class="col-6 col-md-2 themed-grid-col">newContent (Array of strings)</div>
+            <div class="col-6 col-md-6 themed-grid-col">change the explanation of infobox. The first element should be the explanation of this example.<br> e.g.
+<code>ifprogrammer.changeExample(['new example header','new example line1\n'])</code></div>
+
+            <div class="col-6 col-md-4 themed-grid-col">changeSyntax</div>
+            <div class="col-6 col-md-2 themed-grid-col">newContent (Array of strings and subarrays)</div>
+            <div class="col-6 col-md-6 themed-grid-col">change the syntax of infobox.<br> e.g.
+<code>ifprogrammer.changeSyntax([['keyword1'], '   syntax line1\n'])</code></div>
+
+            <div class="col-6 col-md-4 themed-grid-col">makeCodeBox (better to use with makeResultBox)</div>
+            <div class="col-6 col-md-2 themed-grid-col">target position, type</div>
+            <div class="col-6 col-md-6 themed-grid-col">make a codebox. e.g.<br>
+<code>const target = document.querySelector('.if-block')
+const ifprogrammer = new Programmer('if')
+ifprogrammer.makeCodeBox(target, ifprogrammer.type)</code>
+<b>Important: </b>please make the keyword be a innertext of hyperlink with classname "target", with empty string link.e.g.<br>
+<code>&lt;div class ='if-block'&gt;&lt;a class='target' href=""&gt;If&lt;/a&gt;&lt;/div&gt;</code>
+</div>
+
+            <div class="col-6 col-md-4 themed-grid-col">makeResultBox (use with makeCodeBox)</div>
+            <div class="col-6 col-md-2 themed-grid-col">type, codebox.answer</div>
+            <div class="col-6 col-md-6 themed-grid-col">create the result area of codebox<br> e.g.<br>
+<code>const target = document.querySelector('.if-block')<br>
+const ifprogrammer = new Programmer('if')<br>
+ifprogrammer.makeCodeBox(target, ifprogrammer.type)<br>
+ifprogrammer.makeResultBox<br>
+(ifprogrammer.type, ifprogrammer.codebox.answer)</code></div>
+
+            <div class="col-6 col-md-4 themed-grid-col">changeQuestion</div>
+            <div class="col-6 col-md-2 themed-grid-col">newContent (Array of strings and subarrays)</div>
+            <div class="col-6 col-md-6 themed-grid-col">change the question of codebox.<br> e.g.
+<code>ifprogrammer.changeQuestion(['   question1\n', ['keyword1']])</code></div>
+
+            <div class="col-6 col-md-4 themed-grid-col">changeTemplet</div>
+            <div class="col-6 col-md-2 themed-grid-col">newContent (Array of strings and subarrays containing a string represents the length of required user input)</div>
+            <div class="col-6 col-md-6 themed-grid-col">change the code templet of codebox.<br> e.g.
+<code>ifprogrammer.changeTemplet(['templet line1\n', ['4']])</code></div>
+
+            <div class="col-6 col-md-4 themed-grid-col">changeExercise</div>
+            <div class="col-6 col-md-2 themed-grid-col">newContent (Dictionary contains two element. One key is "code" (code template), its value is array of strings and subarrays containing a string represents the length of required user input. Another key is "answer", its value is array of strings.)</div>
+            <div class="col-6 col-md-6 themed-grid-col">change the answer of codebox.<br> e.g.
+<code>ifprogrammer.changeExercise({'code':['templet line1\n', ['6']], 'answer':['newans']})</code></div>
+        </div>
+        </div>
+      </div>
+
+      <p class="fs-5 col-md-8" style="margin-left: 5%;">More information? <a href="./download.html">Download</a> and <a href="./example.html">Example</a></p>
+
+  <div class="b-example-divider"></div>
+  <div id="footer">
+    <p>&copy; 2022 CSC309 xuyongy1 <a href="#" style="color:black;"><i class="fa-solid fa-cubes-stacked" id="footerIcon1"></i><a href="https://github.com/csc309-winter-2022/js-library-xuyongy1"><i class="fa-brands fa-github" id="footerIcon2"></i></a> </p>
+  </div>
+
+  <script src="https://kit.fontawesome.com/d776185afa.js" crossorigin="anonymous"></script>
+ </body>
+
+
+</html>

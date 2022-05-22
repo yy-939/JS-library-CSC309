@@ -1,0 +1,152 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap');
+
+.infobox-shut{
+    display:none;
+}
+
+.infobox{
+    display:block;
+    margin-top:5px;
+    margin-left: 10px;
+    background: #f8f9fa;
+    height: 10%;
+    width: auto;
+    border:2px solid #f8f9fa;
+    border-radius: 5px;
+    font-size:medium;
+    padding:5px;
+    animation: fadeIn ease 0.5s;
+    -webkit-animation: fadeIn ease 0.5s;
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+@-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+
+
+.infobox .def{
+    padding-left: 5px;
+    padding-bottom: 10px;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'Noto Serif Display', serif;
+    text-decoration: underline;
+    animation: bounce ease 1s;
+}
+
+@keyframes bounce {
+    70% { transform:translateY(0%); }
+    80% { transform:translateY(-15%); }
+    90% { transform:translateY(0%); }
+    95% { transform:translateY(-7%); }
+    97% { transform:translateY(0%); }
+    99% { transform:translateY(-3%); }
+    100% { transform:translateY(0); }
+}
+
+.infobox .explanation{
+    line-height: 1.6;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.infobox .syntax{
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    font-size: medium;
+}
+
+.infobox .syntax code{
+    font-size: x-large;
+}
+
+.codebox-shut{
+    display: none;
+}
+
+.codebox{
+    position: relative;
+    left: 10%;
+    display: block;
+    color: black;
+    background: #dee2e6;
+    border:2px solid #dee2e6;
+    border-radius: 5px;
+    margin-left:3%;
+    margin-right: 11%;
+    height:70%;
+    animation: fadeIn ease 0.5s;
+    -webkit-animation: fadeIn ease 0.5s;
+}
+
+.codebox h2{
+    font-family: 'Josefin Sans', sans-serif;
+    animation: bounce ease 1s;
+}
+
+.codebox .codeArea{
+    margin-left:10px;
+}
+
+.codebox .codeArea .codeContainer{
+    background-color: #ccc;
+    margin-top: 5%;
+    margin-left: 30%;
+    width: fit-content;
+    padding: 5px;
+}
+
+.codebox .codebutton{
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-left: 30%;
+    border-radius: 5px;
+    border: white;
+    background-color:white;
+    color:black;
+    font-size: large;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.codebox .codebutton:hover{
+    background-color:#adb5bd;
+    cursor: pointer;
+}
+
+.codebox .result{
+    font-size: medium;
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 30%;
+    font-family: 'courier new', courier;
+}  
+
+/*https://www.w3schools.com/python/python_for_loops.asp*/
+pre{
+    font-size: large;
+}
+input{
+    padding:0.5px;
+    border: 0.1em solid transparent;
+    height:1.3em;
+}

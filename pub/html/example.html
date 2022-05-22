@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>programmerExample</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/example.css">
+    <!-- CSS for programmer library-->
+    <link rel="stylesheet" type="text/css" href="../css/programmer.css">
+
+ </head>
+ <body>
+  <div class="header">
+    <a href="./api.html">API</a>
+    <a href="./download.html">Download</a>
+    <a class="active" href="example.html">Example</a> 
+    <a href="./index.html"><i class="fa-solid fa-cubes-stacked" id="icon"></i>programmer.js</a>
+  </div>
+   <h1>Example</h1>
+   <h3>Try to click <a href="">keywords</a> and explore</h3>
+   <div class="selectArea">
+    <!-- if -->
+ 	  <div class ='block if-block'><a class='target' href="">If</a> <span class="if-condition">apple contains a?</span> then </div>
+    <div class='block action-block'>set my variable to 0</div>
+
+    <!-- loop -->
+    <div class ='block loop-block'><a class='target' href="">Wait until</a> <span class="if-condition">my variable = 10</span></div>
+
+    <!-- user Defined-->
+    <div class ='block user-block'><a class='target' href="">Your Keyword</a> this block is a demonstration of user-defined input</div>
+  </div>
+
+  <h2>programmer.js provides <a href="#info">Information box</a> and <a href="#code">Code Box</a></h2>
+   <div class="divider"></div>
+    <h2 id="info"><i class="fa-regular fa-file-lines" id="icon"></i>Information box</h2>
+    <div class="demoexample">
+      <p>the popup information box includes the keyword definition <b>explanation</b>, <b>syntax</b>, as well as an <b>example</b></p>
+      <p>contains 'if' and 'loop' templet boxes by default</p>
+      <img class='pic' src="../img/info.png">  
+      <img class='pic' src="../img/info2.png" style="margin-left:50px; margin-bottom: 50px;">
+      <div class="infoCode">
+        <h4>HTML</h4>
+        <p>please attache additional classname 'target' to hyperlink keyword </p>
+        <code style="margin-left:5%;">
+          &lt;div class ='block if-block'&gt;
+          &lt;a class='target' href=""&gt;If&lt;/a&gt;
+          &lt;/div&gt;</code>
+        <h4>JS</h4>
+        <p>please also provide target block position when using programmer.js. <br>(<code>target</code> in the following example)</p>
+        <p>If the target keyword is 'if' or 'loop', try to use default templet: just simply provide with <code>'if'</code> or <code>'loop'</code> as keyword</p>
+        <code style="margin-left:5%;">const target = document.querySelector('.if-block')</code><br>
+        <code style="margin-left:5%;">const ifprogrammer = new Programmer('if')</code><br>
+        <code style="margin-left:5%;">ifprogrammer.makeInfoBox(target, ifprogrammer.type)</code><br>
+        <br>
+        <code style="margin-left:5%;">const target2 = document.querySelector('.loop-block')</code><br>
+        <code style="margin-left:5%;">const loopprogrammer = new Programmer('loop')</code><br>
+        <code style="margin-left:5%;">loopprogrammer.makeInfoBox(target2, loopprogrammer.type);</code><br>
+        <p>if you wish to create your own infobox, create Programmer like this:</p>
+        <code style="margin-left:5%;">const target3 = document.querySelector('.user-block')</code><br>
+          <code style="margin-left:5%;">const userprogrammer = new Programmer('user', 'explanation',</code><br>
+            <code style="margin-left:5%;">['example header', 'example line1\n', 'example line2\n', 'example line3\n'], </code><br>
+              <code style="margin-left:5%;">[['keyword1'], ' syntax line1\n',['keyword2'], '     syntax line2\n'])</code><br>
+                <br>
+                <code style="margin-left:5%;">userprogrammer.makeInfoBox(target3, userprogrammer.type)</code>
+        <br>
+        <p><code>example</code> and <code>syntax</code> must be arrays. Use subarrays to indicate keywords (<code>keyword1</code> in the above example)</p>
+        <p>You can modify explanation, example and syntax</p>
+        <code style="margin-left:5%;">userprogrammer.changeExplanation("new explanation for if")</code><br>
+          <code style="margin-left:5%;">userprogrammer.changeExample(['new example header','new example line1\n'])</code><br>
+            <code style="margin-left:5%;">userprogrammer.changeSyntax([['keyword1'], '   syntax line1\n'])</code>
+      </div>  
+
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 id="code"><i class="fa-solid fa-code" id="icon"></i>Code box</h2>
+    <div class="demoexample">
+      <img class='pic' src="../img/code.png">
+      <img class='pic' src="../img/code2.png" style="margin-left:50px;">  
+      <div class="infoCode codeCode">
+        <h4>HTML</h4>
+        <p>please attache additional classname 'target' to hyperlink keyword </p>
+        <code style="margin-left:5%;">
+          &lt;div class ='block if-block'&gt;
+          &lt;a class='target' href=""&gt;If&lt;/a&gt;
+          &lt;/div&gt;</code>
+        <h4>JS</h4>
+        <p>please also provide target block position when using programmer.js. <br>(<code>target</code> in the following example)</p>
+        <p>If the target keyword is 'if' or 'loop', try to use default templet: just simply provide with <code>'if'</code> or <code>'loop'</code> as keyword.</p>
+        <code style="margin-left:5%;">const target = document.querySelector('.if-block')</code><br>
+          <code style="margin-left:5%;">const ifprogrammer = new Programmer('if')</code><br>
+            <code style="margin-left:5%;">ifprogrammer.makeCodeBox(target, ifprogrammer.type)</code><br>
+              <code style="margin-left:5%;">ifprogrammer.makeResultBox(ifprogrammer.type, ifprogrammer.codebox.answer)</code><br>
+              <br>
+                <code style="margin-left:5%;">const target2 = document.querySelector('.loop-block')</code><br>
+                  <code style="margin-left:5%;">const loopprogrammer = new Programmer('loop')</code><br>
+                    <code style="margin-left:5%;">loopprogrammer.makeCodeBox(target2, loopprogrammer.type)</code><br>
+                      <code style="margin-left:5%;">loopprogrammer.makeResultBox(loopprogrammer.type, loopprogrammer.codebox.answer)</code>
+        <p>if you wish to create your own codebox, create Programmer like this: </p>
+        <code style="margin-left:5%;">const target3 = document.querySelector('.user-block')</code><br>
+          <code style="margin-left:5%;">const userprogrammer = new Programmer('user',[['keyword1'], ' question1'],</code><br>
+              <code style="margin-left:5%;">[['4'], ' templet line1\n', '    templet line2\n', ['4'],'   templet line3\n'], ['ans1', 'ans2'])</code><br>
+   <br>       
+   <code style="margin-left:5%;">userprogrammer.makeCodeBox(target3, userprogrammer.type)</code><br>
+    <code style="margin-left:5%;">userprogrammer.makeResultBox(userprogrammer.type, userprogrammer.codebox.answer)</code>
+        <br>
+        <p><code>question</code>, <code>templet</code> and <code>answer</code> must be arrays. Use nested array to indicate keyword (<code>keyword1</code> in the above example). For <code>templet</code>, use nested array to indicate the user input length (<code>['4']</code> stands for the required user input length should be 4). The number of <code>answer</code>s should match the number of input fields.</p>
+        <p>You can modify question, templet and answer. changeTemplet function only changes templet but not answer. If you wish to change answer, you can call changeExercise with both new templet and answer provided</p>
+        <code style="margin-left:5%;">userprogrammer.changeQuestion(['   question1\n', ['keyword1']])</code><br>
+          <code style="margin-left:5%;">userprogrammer.changeTemplet(['templet line1\n', ['4']])</code><br>
+            <code style="margin-left:5%;">userprogrammer.changeExercise({'code':['templet line1\n', ['6']], 'answer':['newans']})</code>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 id="code"><i class="fa-solid fa-check-double" id="icon"></i>Use both Information box and Code box?</h2>
+    <div class="comb">
+      <h3>HTML</h3>
+      <p>please attache additional classname 'target' to hyperlink keyword </p>
+      <code style="margin-left:5%;">
+        &lt;div class ='block user-block'&gt;
+        &lt;a class='target' href=""&gt;User&lt;/a&gt;
+        &lt;/div&gt;</code>
+      </textarea>
+      <h3>JS</h3>
+        <p>please also provide target block position when using programmer.js. <br>(<code>target</code> in the following example)</p>
+        <p>If the target keyword is 'if' or 'loop', try to use default templet: just simply provide with <code>'if'</code> or <code>'loop'</code> as keyword.</p>
+        <code style="margin-left:5%;">const target = document.querySelector('.if-block')</code><br>
+          <code style="margin-left:5%;">const ifprogrammer = new Programmer('if')</code><br>
+            <code style="margin-left:5%;">ifprogrammer.makeInfoBox(target, ifprogrammer.type)</code><br>
+              <code style="margin-left:5%;">ifprogrammer.makeCodeBox(target, ifprogrammer.type)</code><br>
+                <code style="margin-left:5%;">ifprogrammer.makeResultBox(ifprogrammer.type, ifprogrammer.codebox.answer)</code><br>
+                <br>
+                  <code style="margin-left:5%;">const target2 = document.querySelector('.loop-block')</code><br>
+                    <code style="margin-left:5%;">const loopprogrammer = new Programmer('loop')</code><br>
+                      <code style="margin-left:5%;">loopprogrammer.makeInfoBox(target2, loopprogrammer.type)</code><br>
+                        <code style="margin-left:5%;">loopprogrammer.makeCodeBox(target2, loopprogrammer.type)</code><br>
+                          <code style="margin-left:5%;">loopprogrammer.makeResultBox(loopprogrammer.type, loopprogrammer.codebox.answer)</code>
+        <p>if you wish to create your own infobox and codebox, create Programmer like this: </p>
+        <code style="margin-left:5%;">const target3 = document.querySelector('.user-block')</code><br>
+        <code style="margin-left:5%;">const userprogrammer = new Programmer(</code><br>
+        <code style="margin-left:5%;">'user', 'explanation', ['example header', 'example line1\n', 'example line2\n', 'example line3\n'],</code><br> 
+        <code style="margin-left:5%;">[['keyword1'], ' syntax line1\n',['keyword2'], '     syntax line2\n'], [['keyword1'], ' question1'],</code><br>
+        <code style="margin-left:5%;">[['4'], ' templet line1\n', '    templet line2\n', ['4'],'   templet line3\n'], ['ans1', 'ans2'])</code><br>
+<br>
+<code style="margin-left:5%;">userprogrammer.makeInfoBox(target3, userprogrammer.type)</code><br>
+<code style="margin-left:5%;">userprogrammer.makeCodeBox(target3, userprogrammer.type)</code><br>
+<code style="margin-left:5%;">userprogrammer.makeResultBox(userprogrammer.type, userprogrammer.codebox.answer)</code>
+        <br>
+        <p><code>example</code>, <code>syntax</code>, <code>question</code>, <code>templet</code> and <code>answer</code> must be arrays. Use nested array to indicate keyword (<code>keyword1</code> in the above example). For <code>templet</code>, use nested array to indicate the user input length (<code>['4']</code> stands for the required user input length should be 4). The number of <code>answer</code>s should match the number of input fields.</p>
+        <p>You can modify explanation, example, syntax, question, templet and answer. changeTemplet function only changes templet but not answer. If you wish to change answer, you can call changeExercise with both new templet and answer provided</p>
+        <code style="margin-left:5%;">userprogrammer.changeExplanation("new explanation for if")</code><br> 
+          <code style="margin-left:5%;">userprogrammer.changeExample(['new example header','new example line1\n'])</code><br> 
+            <code style="margin-left:5%;">userprogrammer.changeSyntax([['keyword1'], '   syntax line1\n'])</code><br> 
+              <code style="margin-left:5%;">userprogrammer.changeQuestion(['   question1\n', ['keyword1']])</code><br> 
+                <code style="margin-left:5%;">userprogrammer.changeTemplet(['templet line1\n', ['4']])</code><br> 
+                  <code style="margin-left:5%;">userprogrammer.changeExercise({'code':['templet line1\n', ['6']], 'answer':['newans']})</code>       
+    </div>
+
+
+  <div class="b-example-divider"></div>
+  <div id="footer">
+    <p>&copy; 2022 CSC309 xuyongy1 <a href="#" style="color:black;"><i class="fa-solid fa-cubes-stacked" id="footerIcon1"></i></a></i><a href="https://github.com/csc309-winter-2022/js-library-xuyongy1"><i class="fa-brands fa-github" id="footerIcon2"></i></a> </p>
+  </div>
+
+
+    <script src="https://kit.fontawesome.com/d776185afa.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/programmer.js"></script>
+     <!-- Then we load a script that depends on our libraries -->
+    <script type="text/javascript" src='../js/example.js'></script>  
+ </body>
+
+
+</html>
